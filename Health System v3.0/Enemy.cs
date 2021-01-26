@@ -8,8 +8,8 @@ namespace Health_System_v3._0
 {
     class Enemy:CHARACTER
     {
-        public int _enemyNum;
-        public string _enemyName;
+        public static int _enemyNum;
+        public static string _enemyName;
         public Enemy() 
         {
             _health = 100;

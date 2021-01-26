@@ -41,14 +41,18 @@ namespace Health_System_v3._0
 {
     class Program
     {
-        ///CHARACTER Parent of Player, Enemy;
-        /// TakeDamage, Heal, CheckRange(call before display)
+        static Player player1 = new Player("bon jovi");
+        static Battle_Manager_SYSTM BMS = new Battle_Manager_SYSTM();
+        ///CHARACTER Parent of Player, Enemy:
+        ///     TakeDamage, Heal, CheckRange(call before display)
         /// Player: Player(string), TakeDamage(int), RegenShield(int), ShowHUD, CheckStatus, GameOver, CheckRange  
         /// Enemy: Enemy, CallEnemy
         static void Main(string[] args)
         {
+            BMS.playShowcase(player1);
 
-
+            Console.ReadKey(true);
         }
+        
     }
 }

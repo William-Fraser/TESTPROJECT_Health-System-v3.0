@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Health_System_v3._0
 {
-    class Player:CHARACTER
+    class Player : CHARACTER
     {
         //fields:
-        private string _name;
+        public string _name;
+        public int _shield;
         private string _lifeStatus;
-        private int _shield;
         private int _lives;
 
         //methods:
@@ -22,10 +22,17 @@ namespace Health_System_v3._0
             _lives = 3;
 
         }
+        public Player()
+        {
+
+        } // for Management Inheritance
         new public void TakeDamage(int damage) 
         {
+            int damageBleed = 0 ;
             _shield -= damage;
-            if (_shield <= 0) { TakeDamage(damage); } //calls ParentClass method
+            damageBleed = _shield;
+            if (_shield <= 0 && damage != 0) { _health -= damageBleed; damageBleed = 0; }
+            if (_shield <= 0 && damage == 0) { _health -= damage; } //calls ParentClass method
             if (_health <= 0) { _lives -= 1; }
 
         }
@@ -36,21 +43,25 @@ namespace Health_System_v3._0
         }
         public void ShowHUD() 
         {
-            int border = 2 + _name.Length + 9 + _lifeStatus.Length + 3 + 10 + _health.ToString().Length + 3 + 10 + _shield.ToString().Length + 3 + 9 + _lives.ToString().Length + 3;
             CheckStatus();
+            int borderLength = 0;
+            borderLength += _name.Length + 9 + _lifeStatus.Length +1+ 10 + _health.ToString().Length +1+ 10 + _shield.ToString().Length+1+ 9 + _lives.ToString().Length+ 3;
             Console.WriteLine();
-            for (int i = 0; i <= border; i++)
+            Console.Write("      ");
+            for (int i = 0; i <= borderLength; i++)
             {
-                Console.WriteLine("▄");
-            }
-            Console.Write("█ " + _name + " Status: "+_lifeStatus+" █ ");
-            Console.Write("█ Health: " + _health + " █ ");
-            Console.Write("█ Shield: " + _shield + " █ ");
+                Console.Write("▄");
+            }   
+            Console.WriteLine();
+            Console.Write("      █ " + _name + " Status: "+_lifeStatus+" ");
+            Console.Write("█ Health: " + _health+" ");
+            Console.Write("█ Shield: " + _shield+" ");
             Console.Write("█ Lives: " + _lives + " █ ");
             Console.WriteLine("");
-            for (int i = 0; i <= border; i++)
+            Console.Write("      ");
+            for (int i = 0; i <= borderLength; i++)
             {
-                Console.WriteLine("▄");
+                Console.Write("▀");
             }
 
         }
@@ -81,5 +92,11 @@ namespace Health_System_v3._0
             else if (_lives <= 0) { _lives = 0; }
 
         }
+        public void debugReset()
+        {
+            _health = 100;
+            _shield = 100;
+            _lives = 3;
+        }//debugShowcase child
     }
 }
