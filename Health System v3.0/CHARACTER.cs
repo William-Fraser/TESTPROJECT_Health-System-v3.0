@@ -34,7 +34,6 @@ namespace Health_System_v3._0
         public void Heal(int healing) 
         {
             _health += healing;
-
         }
         public void CheckRange() 
         {

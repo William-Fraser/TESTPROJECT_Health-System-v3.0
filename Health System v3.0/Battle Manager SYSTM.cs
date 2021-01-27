@@ -21,12 +21,15 @@ namespace Health_System_v3._0
                 yn = Console.ReadKey();
                 if (yn.Key == ConsoleKey.Y)
                 {
+                    Console.Clear();
                     debugShowcase(player);
                 }
-                else if (yn.Key == ConsoleKey.N) { break; }
+                else if (yn.Key == ConsoleKey.N) { Console.Clear(); break; }
                 else
                 {
+                    Console.Clear();
                     Console.WriteLine("Input operation");
+                    Console.WriteLine();
                 }
             }
         }//let the show begin.
@@ -41,17 +44,19 @@ namespace Health_System_v3._0
             while (true) 
             { 
                 Console.WriteLine();
-                Console.WriteLine("  debug Menu \n\n 0 - PlayAll\n 1 - Modification\n 2 - Range\n 3 - Error\n");
+                Console.WriteLine("   debug Menu \n\n 0 - PlayAll\n 1 - Modification\n 2 - Range\n 3 - Error\n");
                 Console.Write("Enter Value : ");
                 debugCode = Console.ReadKey();
+                Console.Clear();
                 if (debugCode.Key == ConsoleKey.D1 || debugCode.Key == ConsoleKey.D0) //modification debug
                 {
                     debugCodeTwo = debugCode;
                     if (debugCode.Key != ConsoleKey.D0)
                     {
-                        Console.WriteLine("   Modification debug Menu\n\n 4 - TakeDamage\n 5 - Heal \n 6 - RegenShield\n 7 - healthStatus\n FIX* 8 - LifeRevive");
+                        Console.WriteLine("\n   Modification debug Menu\n\n 4 - TakeDamage\n 5 - Heal \n 6 - RegenShield\n 7 - healthStatus\n FIX* 8 - LifeRevive\n");
                         Console.Write("Enter Value : ");
                         debugCodeTwo = Console.ReadKey();
+                        Console.Clear();
                     }
                     else 
                     { }
@@ -149,6 +154,8 @@ namespace Health_System_v3._0
                         player.ShowHUD();
                         player.TakeDamage(999);
                         player.ShowHUD();
+                        player.TakeDamage(999);
+                        player.ShowHUD();
                         player.debugReset();
                         Console.WriteLine();
                         Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -180,9 +187,10 @@ namespace Health_System_v3._0
                     debugCodeTwo = debugCode;
                     if (debugCode.Key != ConsoleKey.D0)
                     {
-                        Console.WriteLine("   Range debug Menu\n\n 4 - health\n 5 - ,6,7");
+                        Console.WriteLine("\n   Range debug Menu\n\n 4 - health\n 5 - shield\n 6 - lives\n FIX* 7 - liferevive/1up\n");
                         Console.Write("Enter Value : ");
                         debugCodeTwo = Console.ReadKey();
+                        Console.Clear();
                     }
                     else { }
                     if (debugCodeTwo.Key == ConsoleKey.D4 || debugCode.Key == ConsoleKey.D0)
@@ -272,9 +280,10 @@ namespace Health_System_v3._0
                     debugCodeTwo = debugCode;
                     if (debugCode.Key != ConsoleKey.D0)
                     {
-                        Console.WriteLine("4,5,6,7. Error debug Menu");
+                        Console.WriteLine("\n   Error debug Menu\n\n 4 - takeDamage\n 5 - Heal\n 6 - RegenShield\n 7 - lifeRevive\n");
                         Console.Write("Enter Value : ");
                         debugCodeTwo = Console.ReadKey();
+                        Console.Clear();
                     }
                     else { }
                     if (debugCodeTwo.Key == ConsoleKey.D4 || debugCode.Key == ConsoleKey.D0)
@@ -349,12 +358,14 @@ namespace Health_System_v3._0
                     }
                     else { }
                 }//3 error
-                if (debugCode.Key == ConsoleKey.Escape || debugCode.Key == ConsoleKey.D0)// escape
+                if (debugCode.Key == ConsoleKey.D0) { Console.WriteLine(" to exit debug press ESC"); }
+                if (debugCode.Key == ConsoleKey.Escape)// escape
                 {
                     if (debugCode.Key == ConsoleKey.D0) { Console.WriteLine("Played All"); }
 
                     Console.WriteLine("Exiting the debug");
-
+                    System.Threading.Thread.Sleep(500);
+                    Console.Clear();
                     break;
                 }
                 else { }
