@@ -8,15 +8,10 @@ namespace Health_System_v3._0
 {
     class Player : CHARACTER
     {
-        public Player()
-        {
-
-        } // for Management Inheritance
         
         //fields:
-        public bool _gameover = false;
-        public string _name;
-        public int _shield;
+        private bool _gameover = false;
+        private int _shield;
         private string _lifeStatus;
         private int _lives;
 
@@ -27,9 +22,10 @@ namespace Health_System_v3._0
             _shield = 100;
             _lives = 3;
 
-        }
+        } // constructor
         new public void TakeDamage(int damage) 
         {
+            ErrorCheck(damage);
             Console.WriteLine("         "+this._name+" taking "+damage +" points of damage");
             int damageBleed = 0 ;
             _shield -= damage;
@@ -39,84 +35,94 @@ namespace Health_System_v3._0
             if (_health <= 0) { _lives -= 1; }
 
         }
-        new public void Heal(int healing)
-        {
-            _health += healing;
-            Console.WriteLine("         " + this._name+" healing " + healing + " points of health");
-        }
         public void RegenShield(int regened)
         {
-            Console.WriteLine("         " + this._name+"Regenerating "+regened+" points of Shield");
+            ErrorCheck(regened);
+            Console.WriteLine("         " + this._name+" Regenerated "+regened+" points of Shield");
             _shield += regened;
 
         }
+        public void LifeRevive(int Rev)
+        {
+            ErrorCheck(Rev);
+            Console.WriteLine("         " + this._name + " gained " + Rev + " lives");
+                _lives += Rev;
+            
+        }
         public void ShowHUD() 
         {
-            if (_gameover == true) { }
-            else
+            CheckRange();
+            CheckStatus();
+            GameOver();
+            int borderLength = 0;
+            borderLength += _name.Length + 9 + _lifeStatus.Length + 10 + _health.ToString().Length + 10 + _shield.ToString().Length + 1 + 9 + _lives.ToString().Length + 3;
+            Console.WriteLine();
+            Console.Write("      █");
+            for (int i = 0; i <= borderLength; i++)
             {
-                CheckRange();
-                CheckStatus();
-                int borderLength = 0;
-                borderLength += _name.Length + 9 + _lifeStatus.Length + 10 + _health.ToString().Length + 10 + _shield.ToString().Length + 1 + 9 + _lives.ToString().Length + 3;
-                Console.WriteLine();
-                Console.Write("      █");
-                for (int i = 0; i <= borderLength; i++)
-                {
-                    Console.Write("▄");
-                }
-                Console.WriteLine("█");
-                Console.Write("      █ " + _name + " Status: " + _lifeStatus + " ");
-                Console.Write("█ Health: " + _health + " ");
-                Console.Write("█ Shield: " + _shield + " ");
-                Console.Write("█ Lives: " + _lives + " █ ");
-                Console.WriteLine("");
-                Console.Write("      █");
-                for (int i = 0; i <= borderLength; i++)
-                {
-                    Console.Write("▀");
-                }
-                Console.WriteLine("█");
-                Console.WriteLine();
+            Console.Write("▄");
             }
-        }
+            Console.WriteLine("█");
+            Console.Write("      █ " + _name + " Status: " + _lifeStatus + " ");
+            Console.Write("█ Shield: " + _shield + " ");
+            Console.Write("█ Health: " + _health + " ");
+            Console.Write("█ Lives: " + _lives + " █ ");
+            Console.WriteLine("");
+            Console.Write("      █");
+            for (int i = 0; i <= borderLength; i++)
+            {
+                Console.Write("▀");
+            }
+            Console.WriteLine("█");
+            Console.WriteLine();
+            if (_lives <= 0)
+            {
+                Console.WriteLine("         GAME OVER");
+            }
+        } // <<< Displays the Status of the Player
+        public void GameOver() 
+        {
+            if (_lives > 0 && _health <= 0)
+            {
+                _health = 100;
+            } // <<<< uses life instead of game over true, life calculated as damage in TakeDamage()
+            if (_lives <= 0) 
+            {   
+                _lifeStatus = "X DEAD X";
+                _gameover = true;
+                
+            } // <<<< writes game over message and ends game loop, gameover = true  ----- add option to continue?
+
+        }// <<<< ShowHUD Child, updates death
         public void CheckStatus() 
         {
             if (_health >= 75) { _lifeStatus = "Healthy"; }
             else if (_health >= 50) { _lifeStatus = "Hurt"; }
             else if (_health >= 25) { _lifeStatus = "Danger"; }
             else if (_health <= 24) { _lifeStatus = "! Peril !"; }
-            else if (_health <= 0) { _lifeStatus = "X DEAD X"; }
-
-        }
-        public void GameOver() 
+        }// <<<< ShowHUD Child, updates state
+        new public void CheckRange()
         {
-            if (_lives <= 0) 
-            {
-                ShowHUD();
-                _gameover = true;
-            }
-
-        }
-        new public void CheckRange() 
-        {
-            if (_health <= 1 && _lives <= 1)
-
-            if (_health >= 101) { _health = 100; }
-            else if (_health <= 0) { _health = 100; }
-
+            base.CheckRange(); 
             if (_shield >= 101) { _shield = 100; }
             else if (_shield <= 0) { _shield = 0; }
-
-            if (_lives >= 99) { _lives = 99; }
+            if (_lives >= 100) { _lives = 99; }
             else if (_lives <= 0) { _lives = 0; }
+        }// <<<< ShowHUD Child, fixes stats if they exeed the range
 
-        }
+
+        //debug
         public void debugReset()
         {
+            Console.WriteLine("         resetting " + this._name+" status values ");
             _health = 100;
             _shield = 100;
             _lives = 3;
-        }//debugShowcase child
+        }// <<<< debugShowcase child
+        public void debugSetShield(int value)
+        {
+            _shield = value;
+            Console.WriteLine("         Setting " + this._name+" Shield to "+value);
+        }
     }
 }

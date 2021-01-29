@@ -13,28 +13,34 @@ using System.Threading.Tasks;
 ///
 ///Create an OOP health system:
 ///
-///develop a health system
-///implement in a Player class
-///implement in an Enemy class
-///use inheritance(and all that that implies)
+///develop a health system-------------------------------
+///implement in a Player class-------------------------------
+///implement in an Enemy class-------------------------------------
+///use inheritance(and all that that implies)-----------------------------------------------
 ///Showcase all the functionality, including range checking and error checking.
 /// 
 /// 
 /// GOALS TO HIT proper coding conventions and object-oriented programming architecture (and all that that implies):
 ///
-///encapsulation
-///constructor
-///inheritance
-///abstract classes
-///base(parent) classes
-///derived(child) classes
-///proper naming conventions
-///access modifiers (private/public/static)
-///fields / methods
-///namespaces
-///range checking
-///error checking
+///encapsulation - creating a class
+///constructor - the class constructor
+///inheritance - from a parent class
+///abstract classes - can't be instaniated
+///base(parent) classes - YES
+///derived(child) classes - ABSOLUTELY
+///proper naming conventions - idk
+///access modifiers (private/public/static) - ye
+///fields / methods - yeye
+///namespaces -yeyeye
+///range checking - i think
+///error checking - i hope
 ///
+/// EXTRA MILE
+/// Naming player
+/// Combat
+/// level system
+/// scaling health
+/// 
 /// ...details of all the above omitted on purpose.
 /// </TODO>
 namespace Health_System_v3._0
