@@ -10,7 +10,7 @@ namespace Health_System_v3._0
     {
         
         //debugging
-        public void playShowcase(Player player)
+        public void PlayShowcase(Player player)
         {
             while (true)
             {
@@ -32,21 +32,21 @@ namespace Health_System_v3._0
                     Console.WriteLine();
                 }
             }
-        }//let the show begin.
+        }//so you like to debug?
 
-        private void debugShowcase(Player input)//fix this
+        private void debugShowcase(Player input)
         {
             ConsoleKeyInfo debugCode;
             ConsoleKeyInfo debugCodeTwo;
 
-            input.debugReset();
 
             while (true) 
             { 
                 Console.WriteLine();
-                Console.WriteLine("   debug Menu for "+input+"\n\n 0 - PlayAll\n 1 - Modification\n 2 - Range\n 3 - Error\n");
+                Console.WriteLine("   debug Menu for "+input+"\n\n 0 - PlayAll\n 1 - Modification\n 2 - Range\n 3 - Error\n 4 - Enemy");
                 Console.Write("Enter Value : ");
                 debugCode = Console.ReadKey();
+                input.debugReset();
                 Console.Clear();
                 if (debugCode.Key == ConsoleKey.D1 || debugCode.Key == ConsoleKey.D0) //modification debug
                 {
@@ -85,7 +85,7 @@ namespace Health_System_v3._0
                         input.debugReset();
                         debugBorder();
                     }
-                    if (debugCodeTwo.Key == ConsoleKey.D5 || debugCode.Key == ConsoleKey.D0)
+                    else if (debugCodeTwo.Key == ConsoleKey.D5 || debugCode.Key == ConsoleKey.D0)
                     {
                         debugBorder();
                         Console.WriteLine("         displaying debug for modification Heal");
@@ -98,7 +98,7 @@ namespace Health_System_v3._0
                         debugBorder();
 
                     }
-                    if (debugCodeTwo.Key == ConsoleKey.D6 || debugCode.Key == ConsoleKey.D0)
+                    else if (debugCodeTwo.Key == ConsoleKey.D6 || debugCode.Key == ConsoleKey.D0)
                     {
                         debugBorder();
                         Console.WriteLine("         displaying debug for modification RegenShield");
@@ -111,7 +111,7 @@ namespace Health_System_v3._0
                         debugBorder();
 
                     }
-                    if (debugCodeTwo.Key == ConsoleKey.D7 || debugCode.Key == ConsoleKey.D0)
+                    else if (debugCodeTwo.Key == ConsoleKey.D7 || debugCode.Key == ConsoleKey.D0)
                     {
                         debugBorder();
                         Console.WriteLine("         displaying debug for modification HealthStatus");
@@ -134,7 +134,7 @@ namespace Health_System_v3._0
                         input.debugReset();
                         debugBorder();
                     }
-                    if (debugCodeTwo.Key == ConsoleKey.D8 || debugCode.Key == ConsoleKey.D0)
+                    else if (debugCodeTwo.Key == ConsoleKey.D8 || debugCode.Key == ConsoleKey.D0)
                     {
                         debugBorder();
                         Console.WriteLine("         displaying debug for modification LifeRevive");
@@ -150,12 +150,12 @@ namespace Health_System_v3._0
                     }
                     else {  }
                 }///////1 modify
-                if (debugCode.Key == ConsoleKey.D2 || debugCode.Key == ConsoleKey.D0) //Range debug
+                else if (debugCode.Key == ConsoleKey.D2 || debugCode.Key == ConsoleKey.D0) //Range debug
                 {
                     debugCodeTwo = debugCode;
                     if (debugCode.Key != ConsoleKey.D0)
                     {
-                        Console.WriteLine("\n   Range debug Menu\n\n 4 - health\n 5 - shield\n 6 - lives\n 7 - Liferevive/1up\n");
+                        Console.WriteLine("\n   Range debug Menu\n\n 4 - health\n 5 - shield\n 6 - lives\n");
                         Console.Write("Enter Value : ");
                         debugCodeTwo = Console.ReadKey();
                         Console.Clear();
@@ -166,7 +166,7 @@ namespace Health_System_v3._0
                         debugBorder();
                         Console.WriteLine("         displaying debug for range checking health");
                         debugBorder();
-                        input.debugSetShield(80);
+                        input.debugSetShield(0);
                         input.debugSetHealth(70);
                         input.ShowHUD();
                         input.Heal(100);
@@ -176,22 +176,21 @@ namespace Health_System_v3._0
                         input.debugReset();
                         debugBorder();
                     }
-                    if (debugCodeTwo.Key == ConsoleKey.D5 || debugCode.Key == ConsoleKey.D0)
+                    else if (debugCodeTwo.Key == ConsoleKey.D5 || debugCode.Key == ConsoleKey.D0)
                     {
                         debugBorder();
                         Console.WriteLine("         displaying debug for range checking shield");
                         debugBorder();
-                        input.debugSetHealth(0);
                         input.debugSetShield(80);
                         input.ShowHUD();
-                        input.RegenShield(100);
+                        input.RegenShield(101);
                         input.ShowHUD();
-                        input.TakeDamage(100);
+                        input.TakeDamage(101);
                         input.ShowHUD();
                         input.debugReset();
                         debugBorder();
                     }
-                    if (debugCodeTwo.Key == ConsoleKey.D6 || debugCode.Key == ConsoleKey.D0)
+                    else if (debugCodeTwo.Key == ConsoleKey.D6 || debugCode.Key == ConsoleKey.D0)
                     {
                         debugBorder();
                         Console.WriteLine("         displaying debug for range checking lives");
@@ -203,24 +202,8 @@ namespace Health_System_v3._0
                         input.ShowHUD();
                         input.TakeDamage(100);
                         input.ShowHUD();
-                        input.TakeDamage(100);
-                        input.ShowHUD();
                         input.debugReset();
                         debugBorder();
-                    }
-                    if (debugCodeTwo.Key == ConsoleKey.D7 || debugCode.Key == ConsoleKey.D0)
-                    {
-                        debugBorder();
-                        Console.WriteLine("         displaying debug for range checking LifeRevive");
-                        debugBorder();
-                        input.debugSetShield(25);
-                        input.debugSetHealth(50);
-                        input.ShowHUD();
-                        input.LifeRevive(10000);
-                        input.ShowHUD();
-                        input.debugReset();
-                        debugBorder();
-
                     }
                     else { }
                 }//2 range
@@ -248,7 +231,7 @@ namespace Health_System_v3._0
                         input.debugReset();
                         debugBorder();
                     }
-                    if (debugCodeTwo.Key == ConsoleKey.D5 || debugCode.Key == ConsoleKey.D0)
+                    else if (debugCodeTwo.Key == ConsoleKey.D5 || debugCode.Key == ConsoleKey.D0)
                     {
                         debugBorder();
                         Console.WriteLine("         displaying debug for error checking Heal");
@@ -260,7 +243,7 @@ namespace Health_System_v3._0
                         input.debugReset();
                         debugBorder();
                     }
-                    if (debugCodeTwo.Key == ConsoleKey.D6 || debugCode.Key == ConsoleKey.D0)
+                    else if (debugCodeTwo.Key == ConsoleKey.D6 || debugCode.Key == ConsoleKey.D0)
                     {
                         debugBorder();
                         Console.WriteLine("         displaying debug for error checking RegenShield");
@@ -272,7 +255,7 @@ namespace Health_System_v3._0
                         input.debugReset();
                         debugBorder();
                     }
-                    if (debugCodeTwo.Key == ConsoleKey.D7 || debugCode.Key == ConsoleKey.D0)
+                    else if (debugCodeTwo.Key == ConsoleKey.D7 || debugCode.Key == ConsoleKey.D0)
                     {
                         debugBorder();
                         Console.WriteLine("         displaying debug for error checking lifeRevive");
@@ -287,6 +270,53 @@ namespace Health_System_v3._0
                     }         
                     else { }
                 }//3 error
+                if (debugCode.Key == ConsoleKey.D4 || debugCode.Key == ConsoleKey.D0) //modification debug
+                {
+                    debugCodeTwo = debugCode;
+                    if (debugCode.Key != ConsoleKey.D0)
+                    {
+                        Console.WriteLine("\n   Enemy debug Menu\n\n 4 - Enemy.TakeDamage\n 5 - Enemy.Heal \n 6 - Enemy(name)");
+                        Console.Write("Enter Value : ");
+                        debugCodeTwo = Console.ReadKey();
+                        Console.Clear();
+                    }
+                    else { Console.WriteLine("\n         Enemy debug"); }
+                    if (debugCodeTwo.Key == ConsoleKey.D4 || debugCode.Key == ConsoleKey.D0)
+                    {
+                        debugBorder();
+                        Console.WriteLine("         displaying debug for Enemy.TakeDamage");
+                        debugBorder();
+                        Enemy enemy1 = new Enemy();
+                        enemy1.ShowHUD();
+                        enemy1.TakeDamage(20);
+                        enemy1.ShowHUD();
+                        debugBorder();
+                    }
+                    if (debugCodeTwo.Key == ConsoleKey.D5 || debugCode.Key == ConsoleKey.D0)
+                    {
+                        debugBorder();
+                        Console.WriteLine("         displaying debug for Enemy.Heal");
+                        debugBorder();
+                        Enemy enemy2 = new Enemy();
+                        enemy2.debugSetHealth(25);
+                        enemy2.ShowHUD();
+                        enemy2.Heal(25);
+                        enemy2.ShowHUD();
+                        debugBorder();
+
+                    }
+                    if (debugCodeTwo.Key == ConsoleKey.D6 || debugCode.Key == ConsoleKey.D0)
+                    {
+                        debugBorder();
+                        Console.WriteLine("         displaying debug for Enemy(name)");
+                        debugBorder();
+                        Enemy bigBoss = new Enemy("Big Boss");
+                        bigBoss.ShowHUD();
+                        debugBorder();
+
+                    }
+                    else { }
+                }
                 if (debugCode.Key == ConsoleKey.D0) { Console.WriteLine(" to exit debug press ESC"); }
                 if (debugCode.Key == ConsoleKey.Escape)// escape
                 {

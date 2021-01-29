@@ -35,7 +35,7 @@ namespace Health_System_v3._0
         public void ErrorCheck(int input)
         {
             if (input <= 0) { Console.WriteLine("ERROR: input cannot be negative"); }
-            else {  }
+            else { return; }
 
         }
         //debug:

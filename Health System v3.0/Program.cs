@@ -39,7 +39,7 @@ using System.Threading.Tasks;
 /// Naming player
 /// Combat
 /// level system
-/// scaling health
+/// scaling max health with levels
 /// 
 /// ...details of all the above omitted on purpose.
 /// </TODO>
@@ -55,7 +55,7 @@ namespace Health_System_v3._0
         /// Enemy: Enemy, CallEnemy
         static void Main(string[] args)
         {
-            BMS.playShowcase(player1);
+            BMS.PlayShowcase(player1);
 
             Console.ReadKey(true);
         }
