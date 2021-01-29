@@ -33,7 +33,7 @@ namespace Health_System_v3._0
             for (int i = 0; i < enemyBorder; i++) { Console.Write("─"); }
             Console.WriteLine("┘");
             Console.WriteLine();
-        }
+        }// <<< displays Status of Enemy
         public void CallEnemy() 
         {
             Enemy enemy = new Enemy();

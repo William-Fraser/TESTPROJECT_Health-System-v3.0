@@ -33,7 +33,6 @@ namespace Health_System_v3._0
                 }
             }
         }//so you like to debug?
-
         private void debugShowcase(Player input)
         {
             ConsoleKeyInfo debugCode;
@@ -333,8 +332,7 @@ namespace Health_System_v3._0
                 Console.ReadKey(true);
                 Console.Clear();
             }
-        }
-
+        }//actual healthsystem debug
         private void debugBorder() 
         {
             Console.WriteLine();
@@ -343,6 +341,6 @@ namespace Health_System_v3._0
                 Console.Write("~");
             }
             Console.WriteLine("\n");
-        }
+        }// easier way to say BORDER
     }
 }

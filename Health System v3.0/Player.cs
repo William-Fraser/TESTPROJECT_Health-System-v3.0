@@ -34,21 +34,21 @@ namespace Health_System_v3._0
             if (_shield <= 0 && damage == 0) { _health -= damage; } //calls ParentClass method
             if (_health <= 0) { _lives -= 1; }
 
-        }
+        }// <<< deals damage to players shield then to health then to lives
         public void RegenShield(int regened)
         {
             ErrorCheck(regened);
             Console.WriteLine("         " + this._name+" Regenerated "+regened+" points of Shield");
             _shield += regened;
 
-        }
+        }// <<< regenerates shield
         public void LifeRevive(int Rev)
         {
             ErrorCheck(Rev);
             Console.WriteLine("         " + this._name + " gained " + Rev + " lives");
                 _lives += Rev;
             
-        }
+        }// <<< Generates Lives to the players life count
         public void ShowHUD() 
         {
             CheckRange();
@@ -123,6 +123,6 @@ namespace Health_System_v3._0
         {
             _shield = value;
             Console.WriteLine("         Setting " + this._name+" Shield to "+value);
-        }
+        } // Sets the shield DEBUGONLY
     }
 }

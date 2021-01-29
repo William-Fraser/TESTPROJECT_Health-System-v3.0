@@ -12,14 +12,14 @@ namespace Health_System_v3._0
         protected string _name;
         protected int _health;
 
-        //methods:
+        //base methods:
         public void TakeDamage(int damage) 
         {
             ErrorCheck(damage);
             Console.WriteLine("         " + this._name + " took " + damage + " points of Damage");
             _health -= damage;
         
-        }
+        } 
         public void Heal(int healing) 
         {
             ErrorCheck(healing);
@@ -37,14 +37,14 @@ namespace Health_System_v3._0
             if (input <= 0) { Console.WriteLine("ERROR: input cannot be negative"); }
             else { return; }
 
-        }
+        } //the only base method not overloaded by the parents children
         //debug:
         public void debugSetHealth(int health) 
         {
             _health = health;
             Console.WriteLine("         setting " + this._name + " Health to "+ health);
         
-        }
+        } //sets health DEBUGONLY
 
 
     }
