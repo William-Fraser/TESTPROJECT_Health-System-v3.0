@@ -19,10 +19,11 @@
 	
 	Enemies would not have these values in a game, maybe shield but it seems like an extra layer of confusion,
 
-	instead the seperation of these values will attempt to demonstrate understanding of concept.
+	instead the seperation of these values as well as the addition of applied knowledge for constructors will attempt to demonstrate understanding of concept.
 
 
 	
 	
 	a Battle manager is used for the debug due to encapsulation, 
-	this manager will handle the battle system and create each battle scenario
+	this manager would handle the battle system and create each battle scenario therefor it should hold the debug for it aswell, 
+	Perhaps debug should be it's own class?
