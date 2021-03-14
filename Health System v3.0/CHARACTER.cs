@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Health_System_v3._0
 {
@@ -34,7 +35,7 @@ namespace Health_System_v3._0
         }
         public void ErrorCheck(int input)
         {
-            if (input <= 0) { Console.WriteLine("ERROR: input cannot be negative"); }
+            if (input <= 0) { Debug.Assert(input <= 0, "ERROR: input cannot be negative"); }
             else { return; }
 
         } //the only base method not overloaded by the parents children

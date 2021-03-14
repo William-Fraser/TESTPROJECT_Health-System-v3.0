@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Health_System_v3._0
 {
@@ -104,10 +105,10 @@ namespace Health_System_v3._0
         new public void CheckRange()
         {
             base.CheckRange(); 
-            if (_shield >= 101) { _shield = 100; }
-            else if (_shield <= 0) { _shield = 0; }
-            if (_lives >= 100) { _lives = 99; }
-            else if (_lives <= 0) { _lives = 0; }
+            if (_shield >= 101) { Debug.Assert(_shield <= 0, "ERROR: input cannot be negative"); }
+            else if (_shield <= 0) { Debug.Assert(_shield <= 0, "ERROR: input cannot be negative"); }
+            if (_lives >= 100) { Debug.Assert(_lives <= 0, "ERROR: input cannot be negative"); }
+            else if (_lives <= 0) { Debug.Assert(_lives <= 0, "ERROR: input cannot be negative"); }
         }// <<<< ShowHUD Child, fixes stats if they exeed the range
 
 

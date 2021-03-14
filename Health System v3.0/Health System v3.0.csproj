@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Battle Manager SYSTM.cs" />
+    <Compile Include="testUnit.cs" />
     <Compile Include="CHARACTER.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Player.cs" />

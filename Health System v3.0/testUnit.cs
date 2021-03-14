@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Health_System_v3._0
 {
-    class Battle_Manager_SYSTM
+    class testUnit
     {
+        static Player playertest = new Player("bon jovi");
         
+
         //debugging
-        public void PlayShowcase(Player player)
+        public void PlayShowcase()
         {
             while (true)
             {
@@ -22,7 +24,7 @@ namespace Health_System_v3._0
                 if (yn.Key == ConsoleKey.Y)
                 {
                     Console.Clear();
-                    debugShowcase(player);
+                    debugShowcase(playertest);
                 }
                 else if (yn.Key == ConsoleKey.N) { Console.Clear(); break; }
                 else

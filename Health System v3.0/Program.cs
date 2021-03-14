@@ -48,14 +48,14 @@ namespace Health_System_v3._0
     class Program
     {
         static Player player1 = new Player("bon jovi");
-        static Battle_Manager_SYSTM BMS = new Battle_Manager_SYSTM();
+        static testUnit unitTest = new testUnit();
         ///CHARACTER Parent of Player, Enemy:
         ///     TakeDamage, Heal, CheckRange(call before display)
         /// Player: Player(string), TakeDamage(int), RegenShield(int), ShowHUD, CheckStatus, GameOver, CheckRange  
         /// Enemy: Enemy, CallEnemy
         static void Main(string[] args)
         {
-            BMS.PlayShowcase(player1);
+            unitTest.PlayShowcase();
 
             Console.ReadKey(true);
         }
